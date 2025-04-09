@@ -1,7 +1,7 @@
 * ==============================================================================
-* state_regulation_panel.do
+* state-panel.do
 * Reshape the historical regulation data into a balanced panel
-* Last updated on March 30, 2024
+* Last updated on April 9, 2025
 * ==============================================================================
 
 /* This code transforms the historical regulation data into a balanced panel. It
@@ -19,7 +19,7 @@ local end 2020
 * ------------------------------------------------------------------------------
 
 * Construct all state-by-occupation pairs in the data. 
-use "$data/historical_regulation_data.dta", clear
+use "$data/build/historical-regulations.dta", clear
 gcontract code occupation statefip, freq(temp)
 reshape wide temp, i(occupation code) j(statefip)
 reshape long
@@ -39,7 +39,7 @@ save `working', replace
 * ------------------------------------------------------------------------------
 
 * Find the last policy enacted before panel starts.
-use "$data/historical_regulation_data.dta", clear
+use "$data/build/historical-regulations.dta", clear
 egen temp=max(`initial') if `initial'<=`start', by(occupation code statefip)
 drop if `initial' != temp & ! missing(temp)
 replace `initial' = `start' if !missing(temp)
@@ -106,9 +106,9 @@ compress
 * Clean up and save.
 label var statefip "State FIPS code"
 order code occupation statefip year regulated regulation regulation_detail practice title direct agency statewide qualifications levels source dateflag
-label data "State Regulation Panel (Built $S_DATE $S_TIME)"
-save "$data/state_regulation_panel.dta", replace
+label data "State Regulation Panel"
+save "$data/build/state-panel.dta", replace
 
 * ============================================================================== 
-* DONE
+* Done
 * ============================================================================== 

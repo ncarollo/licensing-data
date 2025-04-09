@@ -1,7 +1,7 @@
 * ==============================================================================
-* historical_regulation_data.do
+* historical-regulations.do
 * Build main historical regulation database
-* Last updated on March 30, 2024
+* Last updated on April 9, 2025
 * ============================================================================== 
 
 * Get a list of historical regulation files.
@@ -245,9 +245,9 @@ compress
 keep  code occupation statefip event effective enacted regulated regulation regulation_detail practice title direct agency statewide qualifications levels source dateflag source citation
 order code occupation statefip event effective enacted regulated regulation regulation_detail practice title direct agency statewide qualifications levels source dateflag source citation
 sort code statefip enacted
-label data "Historical Regulation Data (Built $S_DATE $S_TIME)"
-save "$data/historical_regulation_data.dta", replace
+label data "Historical Regulation Data"
+save "$data/build/historical-regulations.dta", replace
 
 * ============================================================================== 
-* DONE
+* Done
 * ============================================================================== 

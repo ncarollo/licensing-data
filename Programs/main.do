@@ -1,7 +1,7 @@
 * ==============================================================================
-* setup.do
+* main.do
 * Build historical occupational regulation datasets
-* Last updated on March 30, 2024
+* Last updated on April 9, 2025
 * ==============================================================================
 
 /* This code sets up the historical occupational regulation data in Stata format.
@@ -33,17 +33,21 @@ cd "$project"
 * ------------------------------------------------------------------------------
 
 * Update ado files.
-capture ssc install gzsave,   replace  // Load/save compressed .dta files
-capture ssc install gtools,   replace  // Fast collapse and egen
-capture ssc install gr0034,   replace  // Strings to labels
+capture ssc install gzsave, replace  // Load/save compressed .dta files
+capture ssc install gtools, replace  // Fast collapse and egen
+capture ssc install gr0034, replace  // Strings to labels
 
 * ------------------------------------------------------------------------------
 * Setup historical regulation data
 * ------------------------------------------------------------------------------
 
-do "$programs/historical_regulation_data.do"
-do "$programs/state_regulation_panel.do"
+! mkdir -p "$data/Build"
+
+do "$programs/build/1.metadata.do"
+do "$programs/build/2.historical-regulations.do"
+do "$programs/build/3.state-panel.do"
+do "$programs/build/4.crosswalk.do"
 
 * ==============================================================================
-* DONE
+* Done
 * ==============================================================================
