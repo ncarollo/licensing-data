@@ -1,19 +1,32 @@
 # Historical Data on U.S. Occupational Regulation
 
-This repository contains data on the history of U.S. occupational regulation for a subset of occupations described in the paper "Historical Data on Occupational Regulation in the United States." Data for the full set of occupation categories along with crosswalk and metadata files will be posted for public use once final review and cleaning of the database is complete. If you find this dataset useful, please cite the following paper: 
+This repository contains the main dataset described in the paper "Historical Data on Occupational Regulation in the United States" (Carollo 2025). 
 
-Carollo, Nicholas A. 2024. "Historical Data on Occupational Regulation in the United States." *Working paper* (revised March 2024).  
 
-### Data setup
+## Data setup
 
 The original policy data collected for this project can be found in `./Data/Policies.` These spreadsheets contain notes on sources and coding decisions that users may wish to review prior to working with the data. 
 
-The file `./Programs/setup.do` sets up the policy data in Stata format and also builds a balanced state-occupation panel from 1870 to 2020. Certain variables, including the classification of policies as licensing, certification, or registration requirements are derived from practice and title restrictions recorded in `./Data/Policies.` These derived variables do not appear in the underlying Excel spreadsheets. 
+The file `./Programs/main.do` sets up the policy data in Stata format and also builds a balanced state-occupation panel from 1870 to 2020. Certain variables, including the classification of policies as licensing, certification, or registration requirements are derived from practice and title restrictions recorded in `./Data/Policies.` These derived variables do not appear in the source spreadsheets. 
  
 ### Revisions and potential errors
 
-The data posted on this page are subject to revision. If you believe you have found an error in the data, please open an issue with the title "Potential error in data for [occupation]." In the body of the issue, describe which state(s) have errors for the occupation, the variable(s) are incorrect, and the correction that should be considered. Please provide supporting documentation, ideally from primary legal sources. 
+The data posted on this page are subject to revision. If you believe you have found an error in the data that you would like to report, please open an issue with the title "Potential error in data for [occupation]." In the body of the issue, describe which jurisdictions(s) have errors for the occupation, the variable(s) are incorrect, and the correction that should be reviewed. Please provide supporting documentation from primary sources. 
 
-### Disclaimer
+## Citation information
 
-**This data is provided for research purposes only. Users interested in regulatory requirements for legal purposes should consult their state's statutes and regulations directly.**
+#### If you find this dataset useful, please cite the following paper: 
+
+Carollo, Nicholas A. 2025. "Historical Data on Occupational Regulation in the United States." *Working paper* (revised January 2025).  
+
+#### My other work based on this data:
+
+Carollo, Nicholas A., Jason F. Hicks, Andrew Karch, and Morris M. Kleiner. 2025. "The Origins and Evolution of Occupational Licensing in the United States." *NBER Working Paper No. 33580*.
+
+Carollo, Nicholas A. 2025. "The Labor Market Effects of Occupational Licensing." *Working paper* (revised April 2025)
+
+Carollo, Nicholas A. and Jason F. Hicks. "Occupational Licensing in the U.S. Progressive Era." (in progress).
+
+## Disclaimer
+
+**This dataset is provided for research purposes only. Users interested in regulatory requirements for legal purposes should consult their state's statutes and regulations directly.**
