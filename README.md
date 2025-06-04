@@ -2,8 +2,9 @@
 
 This repository contains the main dataset described in the paper "Historical Data on Occupational Regulation in the United States" (Carollo 2025). 
 
-
 ## Data setup
+
+*Important*: This repository stores data in Excel format using [Git Large File Storage](https://git-lfs.com/). To pull the entire dataset, users will need to install Git LFS and clone (rather than download) the repository. Data files for specific occupations can be downloaded without error.
 
 The original policy data collected for this project can be found in `./Data/Policies.` These spreadsheets contain notes on sources and coding decisions that users may wish to review prior to working with the data. 
 
